@@ -30,6 +30,7 @@ def signUp(request):
         wr = csv.writer(file)
         wr.writerow(['taskname','schedule','completed'])
         file.close()
+        file1.close()
 
     file2 = open(f'{cwd}/app/creds.csv','r')
     rd = csv.reader(file2)
@@ -42,7 +43,7 @@ def signUp(request):
             break
         else:
             found = True
-                
+    file2.close()
     if found:
         sign(username)
         return Response({'message':'true'})
