@@ -1,6 +1,3 @@
-from re import L
-from django.shortcuts import render
-from .signup import signUp
 import os, csv
 
 # Create your views here.
@@ -20,9 +17,7 @@ def index(request):
 def signUp(request):
     username = str(request.data['username'])
     password = str(request.data['password'])
-    
     cwd = os.getcwd()
-
     def sign(user):
         file1 = open(f'{cwd}/app/creds.csv','a',newline='')
         wr1 = csv.writer(file1)
@@ -53,9 +48,7 @@ def signUp(request):
 def logIn(request):
     username = str(request.data['username'])
     password = str(request.data['password'])
-    
     cwd = os.getcwd()
-    # print([username,password])
     file1 = open(f'{cwd}/app/creds.csv','r')
     rd = csv.reader(file1)
     found = False
